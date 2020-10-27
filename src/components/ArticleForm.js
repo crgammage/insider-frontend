@@ -41,7 +41,6 @@ const CampaignForm = props => {
 
     return (
         <div className="form-wrapper">
-        <h2>Add An Article</h2>
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <input 
             placeholder="Title" 

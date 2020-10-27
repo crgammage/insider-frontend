@@ -1,11 +1,15 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, useState} from 'react'
+import ArticleForm from './ArticleForm.js'
 
 const ArticleCard = props => {
     let {title, author, publication_date, body, id, editArticle } = props
+    let [showEditForm, setShowEditForm] = useState(false)
 
     const handleClick = e => {
-        editArticle(id)
+        e.preventDefault()
+        setShowEditForm(true)
     }
+
 
     return (
         <>
@@ -15,6 +19,7 @@ const ArticleCard = props => {
         <h5>Body: {body}</h5>
         <button>Edit Article</button>
         <button>Delete Article</button>
+        {showEditForm ? <ArticleForm/> : null}
         </>
     )
 }

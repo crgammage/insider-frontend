@@ -5,6 +5,7 @@ import ArticleForm from './ArticleForm'
 const ArticleContainer = () => {
     let [articles, setArticles] = useState([])
     let [selectedArticle, setSelectedArticle] = useState({})
+    let [showArticleForm, setShowArticleForm] = useState(false)
 
     useEffect(() => {
         fetch('http://localhost:3000/articles', {
@@ -35,11 +36,21 @@ const ArticleContainer = () => {
         setArticles([...articles, newArticle])
     }
 
+    const createANewArticle = (e) => {
+        setShowArticleForm(true)
+    }
+
     console.log(articles, selectedArticle)
     
     return (
         <div>
-            <ArticleForm handleNewArticle={handleNewArticle}/>
+            {showArticleForm ?
+            <>
+            <h1>Create A New Article</h1>
+            <ArticleForm handleNewArticle={handleNewArticle}/> 
+            </>
+            : null}
+            <button onClick={(e) => createANewArticle(e)}>Create A New Article</button>
             {renderArticles()}
         </div>
        
