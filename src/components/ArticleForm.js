@@ -32,6 +32,7 @@ const CampaignForm = props => {
         .then(res => res.json())
         .then(data => {
             handleNewArticle(data)
+            setFormData(initialFormData)
         })
     }
 
@@ -45,13 +46,14 @@ const CampaignForm = props => {
             <input 
             placeholder="Title" 
             name="title" type="text"
+            value={formData.title}
             onChange={(e) => handleChange(e)} />
             <br />
-            <input placeholder="Author" name="author" type="text" onChange={(e) => handleChange(e)} />
+            <input placeholder="Author" name="author" type="text" value={formData.author} onChange={(e) => handleChange(e)} />
             <br />
-            <input placeholder="Publication Date" name="publication_date" type="date" onChange={(e) => handleChange(e)} />
+            <input placeholder="Publication Date" name="publication_date" type="date" value={formData.publication_date} onChange={(e) => handleChange(e)} />
             <br />
-            <input placeholder="Body" name="body" type="textarea" onChange={(e) => handleChange(e)} />
+            <input placeholder="Body" name="body" type="textarea" value={formData.body} onChange={(e) => handleChange(e)} />
             <br />
             <button>Submit</button>
         </form>
