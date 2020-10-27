@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, Fragment} from 'react'
+import ArticleCard from './ArticleCard'
 
 const ArticleContainer = () => {
     const [articles, setArticles] = useState([])
@@ -17,9 +18,19 @@ const ArticleContainer = () => {
             })
     }, [])
 
+    const renderArticles = () => {
+        return articles.map((article) => (
+            <ArticleCard key={article.id} {...article}/>
+            ))
+    }
+
     console.log(articles)
-    return(
-       <h1>Hey</h1>
+    
+    return (
+        <div>
+            {renderArticles()}
+        </div>
+       
     )
 }
 
