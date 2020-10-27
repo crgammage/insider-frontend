@@ -1,8 +1,10 @@
 import React, {useEffect, useState, Fragment} from 'react'
 import ArticleCard from './ArticleCard'
+import ArticleForm from './ArticleForm'
 
 const ArticleContainer = () => {
-    const [articles, setArticles] = useState([])
+    let [articles, setArticles] = useState([])
+    let [selectedArticle, setSelectedArticle] = useState({})
 
     useEffect(() => {
         fetch('http://localhost:3000/articles', {
@@ -18,16 +20,26 @@ const ArticleContainer = () => {
             })
     }, [])
 
+    const editArticle = (articleId) => {
+        let chosenArticle = articles.find((article) => article.id === articleId)
+        setSelectedArticle(chosenArticle)
+    }
+
     const renderArticles = () => {
         return articles.map((article) => (
-            <ArticleCard key={article.id} {...article}/>
+            <ArticleCard key={article.id} {...article} editArticle={editArticle}/>
             ))
     }
 
-    console.log(articles)
+    const handleNewArticle = (newArticle) => {
+        setArticles([...articles, newArticle])
+    }
+
+    console.log(articles, selectedArticle)
     
     return (
         <div>
+            <ArticleForm handleNewArticle={handleNewArticle}/>
             {renderArticles()}
         </div>
        
