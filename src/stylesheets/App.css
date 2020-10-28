@@ -48,7 +48,6 @@ input [type="text"] {
 
 .article-card {
   margin: auto;
-  padding: 300px;
 }
 
 .myButton {
@@ -88,5 +87,6 @@ input [type="text"] {
   padding: 20px;
 }
 
-.edit-article {
+h1#create-article {
+  font-family: Times New Roman;
 }

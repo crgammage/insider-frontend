@@ -5,6 +5,7 @@ import SearchBar from './SearchBar'
 
 const ArticleContainer = () => {
     let [articles, setArticles] = useState([])
+    let [search, setSearch] = useState('')
     let [showArticleForm, setShowArticleForm] = useState(false)
 
     useEffect(() => {
@@ -23,11 +24,20 @@ const ArticleContainer = () => {
 
 
     const renderArticles = () => {
-        return articles.map((article) => (
-            <div className="article-container">
-            <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle} handleDeletedArticle={handleDeletedArticle}/>
-            </div>
+        if (search !== '') {
+            let filteredArticles = articles.filter(article => article.title.toLowerCase().includes(search.toLowerCase()))
+            return filteredArticles.map((article) => (
+                <div className="article-container">
+                    <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle} handleDeletedArticle={handleDeletedArticle}/>
+                </div>
             ))
+        } else {
+            return articles.map((article) => (
+                <div className="article-container">
+                <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle} handleDeletedArticle={handleDeletedArticle}/>
+                </div>
+                ))
+        }
     }
 
     const handleNewArticle = (newArticle) => {
@@ -49,24 +59,24 @@ const ArticleContainer = () => {
     }
 
     const handleSearch = (searchInput) => {
-        debugger
-        let searchArticles = articles.filter(article => article.title.toLowerCase().includes(searchInput.toLowerCase()))
-        setArticles=([...searchArticles])
+        setSearch(searchInput)
     }
 
 
-    console.log(articles)
+    console.log(search)
     
     return (
         <div>
             {showArticleForm ?
             <>
-            <h1>Create A New Article</h1>
+            <h1 id="create-article">Create A New Article</h1>
+            <button onClick={() => setShowArticleForm(!showArticleForm)}className="myButton">Close New Article Form</button>
             <ArticleForm handleNewArticle={handleNewArticle}/> 
             </>
             : null}
             {showArticleForm ? null : <button onClick={(e) => createANewArticle(e)} class="myButton">Create A New Article</button>}
             <SearchBar handleSearch={handleSearch}/>
+            <button className="myButton" onClick={() => setSearch('')}>View All Articles</button>
         <div className="article-container">
             {renderArticles()}
         </div>
