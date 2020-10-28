@@ -21,7 +21,7 @@ input [type="text"] {
 
 .article-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   flex-wrap: wrap;
   font-family: "Oswald", sans-serif;
   background: linear-gradient;
@@ -30,6 +30,7 @@ input [type="text"] {
   margin: 10px;
   justify-content: center;
   align-content: space-around;
+  border: 1px solid #ced3d5;
 }
 
 .article-card {
@@ -85,9 +86,6 @@ h1#title {
   font-size: 100px;
   margin-top: 0;
   margin-bottom: -50px;
-}
-
-.article-form {
 }
 
 #articles {
