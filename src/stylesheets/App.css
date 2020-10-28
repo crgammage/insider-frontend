@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+  background: #fff2ef;
+}
+
+input {
+  margin-top: 10px;
+  width: 200px;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 38px;
+  border: 1px solid purple;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+input [type="text"] {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.article-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  font-family: "Times New Roman", Times, serif;
+  box-shadow: inset 0px 1px 0px 0px #efdcfb;
+  background: linear-gradient;
+  border: 1px solid purple;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  justify-content: center;
+  box-shadow: 5px 5px purple;
+  align-content: space-around;
+}
+
+.article-card {
+  margin: auto;
+}
+
+.myButton {
+  box-shadow: inset 0px 1px 0px 0px #efdcfb;
+  background: linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
+  background-color: #dfbdfa;
+  border-radius: 6px;
+  border: 1px solid #c584f3;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Times New Roman;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #9752cc;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
+  background-color: #bc80ea;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.searchbar {
+  font-family: Times New Roman;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+h1#create-article {
+  font-family: Times New Roman;
+}
