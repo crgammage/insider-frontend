@@ -22,7 +22,8 @@ const ArticleForm = props => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        let id = e.target.parentElement.parentElement.id
+        let id = e.target.parentElement.id
+        debugger
         fetch(`http://localhost:3000/articles/${id}`, {
             method: 'PATCH',
             headers: {

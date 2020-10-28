@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   text-align: center;
-  background: #fff2ef;
+  background: #fffff0;
 }
 
 input {
@@ -10,7 +10,7 @@ input {
   margin-right: 10px;
   margin-left: 10px;
   height: 38px;
-  border: 1px solid purple;
+  border: 1px solid #120a80;
   border-radius: 10px;
   padding: 10px;
 }
@@ -19,30 +19,16 @@ input [type="text"] {
   font-family: "Times New Roman", Times, serif;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #222;
-  padding: 20px;
-  color: white;
-}
-
 .article-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: auto;
-  font-family: "Times New Roman", Times, serif;
-  box-shadow: inset 0px 1px 0px 0px #efdcfb;
+  font-family: "Oswald", sans-serif;
   background: linear-gradient;
-  border: 1px solid purple;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
   justify-content: center;
-  box-shadow: 5px 5px purple;
   align-content: space-around;
 }
 
@@ -51,27 +37,28 @@ input [type="text"] {
 }
 
 .myButton {
-  box-shadow: inset 0px 1px 0px 0px #efdcfb;
-  background: linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
-  background-color: #dfbdfa;
+  background: #120a80;
+  background-color: #120a80;
   border-radius: 6px;
-  border: 1px solid #c584f3;
-  display: inline-block;
+  border: 1px solid #120a80;
+  display: inline;
   cursor: pointer;
   color: #ffffff;
-  font-family: Times New Roman;
+  font-family: "Oswald", sans-serif;
   font-size: 15px;
   font-weight: bold;
   padding: 10px 24px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #9752cc;
+  text-shadow: 0px 1px 0px #120a80;
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
+  height: 50px;
+  max-height: 50px;
 }
 .myButton:hover {
-  background: linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
-  background-color: #bc80ea;
+  background: linear-gradient(to bottom, #11b3f1 5%, #120a80 100%);
+  background-color: #120a80;
 }
 .myButton:active {
   position: relative;
@@ -87,6 +74,30 @@ input [type="text"] {
   padding: 20px;
 }
 
-h1#create-article {
-  font-family: Times New Roman;
+h1 {
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+}
+
+h1#title {
+  text-align: center;
+  font-family: "Teko", sans-serif;
+  font-size: 100px;
+  margin-top: 0;
+  margin-bottom: -50px;
+}
+
+.article-form {
+}
+
+#articles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 6px #120a80;
+  padding: 10px;
+}
+
+.nav {
+  size: fixed;
 }

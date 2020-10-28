@@ -66,21 +66,24 @@ const ArticleContainer = () => {
     console.log(search)
     
     return (
-        <div>
+        <>
+        <h1 id="title">Articles</h1>
+        <div id="articles">
             {showArticleForm ?
-            <>
-            <h1 id="create-article">Create A New Article</h1>
-            <button onClick={() => setShowArticleForm(!showArticleForm)}className="myButton">Close New Article Form</button>
+            <div className="article-form">
+            <h1>Create A New Article</h1>
             <ArticleForm handleNewArticle={handleNewArticle}/> 
-            </>
+            <button onClick={() => setShowArticleForm(!showArticleForm)} className="myButton">Close New Article Form</button>
+            </div>
             : null}
-            {showArticleForm ? null : <button onClick={(e) => createANewArticle(e)} class="myButton">Create A New Article</button>}
+            {showArticleForm ? null : <button onClick={(e) => createANewArticle(e)} class="myButton nav">Create A New Article</button>}
             <SearchBar handleSearch={handleSearch}/>
-            <button className="myButton" onClick={() => setSearch('')}>View All Articles</button>
+            <button className="myButton nav" onClick={() => setSearch('')}>View All Articles</button>
+        </div>
         <div className="article-container">
             {renderArticles()}
         </div>
-    </div>
+    </>
     )
 }
 
