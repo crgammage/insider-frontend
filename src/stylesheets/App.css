@@ -5,7 +5,7 @@
 }
 
 input {
-  margin-top: 10px;
+  margin-top: 5px;
   width: 200px;
   margin-right: 10px;
   margin-left: 10px;
@@ -13,6 +13,7 @@ input {
   border: 1px solid #120a80;
   border-radius: 10px;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 input [type="text"] {
@@ -54,11 +55,11 @@ input [type="text"] {
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
-  height: 50px;
-  max-height: 50px;
+  height: 40px;
+  max-height: 40px;
 }
 .myButton:hover {
-  background: linear-gradient(to bottom, #11b3f1 5%, #120a80 100%);
+  background: linear-gradient(to bottom, #ced3d5 5%, #120a80 100%);
   background-color: #120a80;
 }
 .myButton:active {
@@ -70,9 +71,7 @@ input [type="text"] {
   font-family: Times New Roman;
   font-size: 15px;
   font-weight: bold;
-  padding: 6px 24px;
-  border-radius: 6px;
-  padding: 20px;
+  margin-top: 5px;
 }
 
 h1 {
@@ -85,17 +84,13 @@ h1#title {
   font-family: "Teko", sans-serif;
   font-size: 100px;
   margin-top: 0;
-  margin-bottom: -50px;
+  margin-bottom: -40px;
 }
 
 #articles {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   border-bottom: solid 6px #120a80;
   padding: 10px;
-}
-
-.nav {
-  size: fixed;
 }

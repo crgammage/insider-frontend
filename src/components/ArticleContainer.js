@@ -76,9 +76,9 @@ const ArticleContainer = () => {
             <button onClick={() => setShowArticleForm(!showArticleForm)} className="myButton">Close New Article Form</button>
             </div>
             : null}
-            {showArticleForm ? null : <button onClick={(e) => createANewArticle(e)} class="myButton nav">Create A New Article</button>}
+            {showArticleForm ? null : <button onClick={(e) => createANewArticle(e)} class="myButton">Create A New Article</button>}
             <SearchBar handleSearch={handleSearch}/>
-            <button className="myButton nav" onClick={() => setSearch('')}>View All Articles</button>
+            <button className="myButton" onClick={() => setSearch('')}>View All Articles</button>
         </div>
         <div className="article-container">
             {renderArticles()}
