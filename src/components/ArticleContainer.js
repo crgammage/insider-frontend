@@ -24,7 +24,7 @@ const ArticleContainer = () => {
 
     const renderArticles = () => {
         return articles.map((article) => (
-            <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle}/>
+            <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle} handleDeletedArticle={handleDeletedArticle}/>
             ))
     }
 
@@ -39,6 +39,11 @@ const ArticleContainer = () => {
     const handleUpdatedArticle = (updatedArticle) => {
         let updatedArticlesArray = articles.filter(article => article.id !== updatedArticle.id)
         setArticles([...updatedArticlesArray, updatedArticle])
+    }
+
+    const handleDeletedArticle = (id) => {
+        let updatedArticlesArray = articles.filter(article => article.id !==id)
+        setArticles([...updatedArticlesArray])
     }
 
 
