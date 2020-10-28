@@ -1,10 +1,10 @@
 import React, {useEffect, useState, Fragment} from 'react'
 import ArticleCard from './ArticleCard'
 import ArticleForm from './CreateArticleForm'
+import SearchBar from './SearchBar'
 
 const ArticleContainer = () => {
     let [articles, setArticles] = useState([])
-    let [selectedArticle, setSelectedArticle] = useState({})
     let [showArticleForm, setShowArticleForm] = useState(false)
 
     useEffect(() => {
@@ -24,7 +24,9 @@ const ArticleContainer = () => {
 
     const renderArticles = () => {
         return articles.map((article) => (
+            <div className="article-container">
             <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle} handleDeletedArticle={handleDeletedArticle}/>
+            </div>
             ))
     }
 
@@ -46,8 +48,14 @@ const ArticleContainer = () => {
         setArticles([...updatedArticlesArray])
     }
 
+    const handleSearch = (searchInput) => {
+        debugger
+        let searchArticles = articles.filter(article => article.title.toLowerCase().includes(searchInput.toLowerCase()))
+        setArticles=([...searchArticles])
+    }
 
-    console.log(articles, selectedArticle)
+
+    console.log(articles)
     
     return (
         <div>
@@ -57,10 +65,12 @@ const ArticleContainer = () => {
             <ArticleForm handleNewArticle={handleNewArticle}/> 
             </>
             : null}
-            {showArticleForm ? null : <button onClick={(e) => createANewArticle(e)}>Create A New Article</button>}
+            {showArticleForm ? null : <button onClick={(e) => createANewArticle(e)} class="myButton">Create A New Article</button>}
+            <SearchBar handleSearch={handleSearch}/>
+        <div className="article-container">
             {renderArticles()}
         </div>
-       
+    </div>
     )
 }
 

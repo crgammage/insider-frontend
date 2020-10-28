@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 const ArticleForm = props => {
-    let {handleUpdatedArticle, setShowEditForm, showEditForm} = props
+    let {handleUpdatedArticle, setShowEditForm} = props
     
     let initialFormData = {
         title: '',
@@ -41,9 +41,8 @@ const ArticleForm = props => {
     }
 
     return (
-        <div className="form-wrapper">
-        <form className="form" onSubmit={(e) => handleSubmit(e)}>
-            <input 
+        <form className="edit-article" onSubmit={(e) => handleSubmit(e)}>
+          <input 
             placeholder="Title" 
             name="title" type="text"
             value={formData.title}
@@ -54,10 +53,9 @@ const ArticleForm = props => {
             <input placeholder="Publication Date" name="publication_date" type="date" value={formData.publication_date} onChange={(e) => handleChange(e)} />
             <br />
             <input placeholder="Body" name="body" type="textarea" value={formData.body} onChange={(e) => handleChange(e)} />
-            <br />
-            <button>Submit</button>
+          <br />
+          <button className="myButton" type="submit">Edit Article</button>
         </form>
-    </div>
     )
 }
 

@@ -41,9 +41,8 @@ const ArticleForm = props => {
     console.log(formData)
 
     return (
-        <div className="form-wrapper">
-        <form className="form" onSubmit={(e) => handleSubmit(e)}>
-            <input 
+        <form className="create-article" onSubmit={(e) => handleSubmit(e)}>
+          <input 
             placeholder="Title" 
             name="title" type="text"
             value={formData.title}
@@ -55,9 +54,8 @@ const ArticleForm = props => {
             <br />
             <input placeholder="Body" name="body" type="textarea" value={formData.body} onChange={(e) => handleChange(e)} />
             <br />
-            <button>Submit</button>
+            <button class="myButton">Submit</button>
         </form>
-    </div>
     )
 }
 

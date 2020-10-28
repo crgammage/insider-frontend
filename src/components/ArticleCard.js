@@ -7,7 +7,7 @@ const ArticleCard = props => {
 
     const handleClick = e => {
         e.preventDefault()
-        setShowEditForm(true)
+        setShowEditForm(!showEditForm)
     }
 
     const deleteArticle = (e) => {
@@ -25,16 +25,17 @@ const ArticleCard = props => {
         .catch(error => console.log(error, "error"))
     }
 
-    console.log(showEditForm)
     return (
+        <div className="article-card">
         <div id={id}>
         <h1 onClick={(e) => handleClick(e)}>Title: {title}</h1>
         <h5>Author: {author}</h5>
         <h5>Publication Date: {new Date(publication_date).toDateString()}</h5>
         <h5>Body: {body}</h5>
-        <button onClick={(e) => handleClick(e)}>Edit Article</button>
-        <button onClick={(e) => deleteArticle(e)}>Delete Article</button>
+        { showEditForm ? <button className="myButton" onClick={(e) => handleClick(e)}> Close Edit Article</button> : <button className="myButton" onClick={(e) => handleClick(e)}>Edit Article</button>}
+        <button className="myButton" onClick={(e) => deleteArticle(e)}>Delete Article</button>
         {showEditForm ? <EditArticleForm showEditForm={showEditForm} setShowEditForm={setShowEditForm} handleUpdatedArticle={handleUpdatedArticle}/> : null}
+        </div>
         </div>
     )
 }
