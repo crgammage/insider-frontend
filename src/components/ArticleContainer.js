@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Fragment} from 'react'
 import ArticleCard from './ArticleCard'
-import ArticleForm from './ArticleForm'
+import ArticleForm from './CreateArticleForm'
 
 const ArticleContainer = () => {
     let [articles, setArticles] = useState([])
@@ -21,14 +21,10 @@ const ArticleContainer = () => {
             })
     }, [])
 
-    const editArticle = (articleId) => {
-        let chosenArticle = articles.find((article) => article.id === articleId)
-        setSelectedArticle(chosenArticle)
-    }
 
     const renderArticles = () => {
         return articles.map((article) => (
-            <ArticleCard key={article.id} {...article} editArticle={editArticle}/>
+            <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle}/>
             ))
     }
 
@@ -37,8 +33,14 @@ const ArticleContainer = () => {
     }
 
     const createANewArticle = (e) => {
-        setShowArticleForm(true)
+        setShowArticleForm(!showArticleForm)
     }
+
+    const handleUpdatedArticle = (updatedArticle) => {
+        let updatedArticlesArray = articles.filter(article => article.id !== updatedArticle.id)
+        setArticles([...updatedArticlesArray, updatedArticle])
+    }
+
 
     console.log(articles, selectedArticle)
     
@@ -50,7 +52,7 @@ const ArticleContainer = () => {
             <ArticleForm handleNewArticle={handleNewArticle}/> 
             </>
             : null}
-            <button onClick={(e) => createANewArticle(e)}>Create A New Article</button>
+            {showArticleForm ? null : <button onClick={(e) => createANewArticle(e)}>Create A New Article</button>}
             {renderArticles()}
         </div>
        

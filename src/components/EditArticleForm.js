@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
-const CampaignForm = props => {
-    let {handleNewArticle} = props
+const ArticleForm = props => {
+    let {handleUpdatedArticle, setShowEditForm, showEditForm} = props
     
     let initialFormData = {
         title: '',
@@ -22,22 +22,23 @@ const CampaignForm = props => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch('http://localhost:3000/articles', {
-            method: 'POST',
+        let id = e.target.parentElement.parentElement.id
+        fetch(`http://localhost:3000/articles/${id}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': "application/json",
                 "Accept": "application/json"
-            }, body: JSON.stringify({ article: formData})
+            }, 
+            body: JSON.stringify({ article: formData })
         })
         .then(res => res.json())
         .then(data => {
-            handleNewArticle(data)
+            handleUpdatedArticle(data)
             setFormData(initialFormData)
+            setShowEditForm(false)
         })
+        .catch(error => console.log(error, "error"))
     }
-
-
-    console.log(formData)
 
     return (
         <div className="form-wrapper">
@@ -60,4 +61,4 @@ const CampaignForm = props => {
     )
 }
 
-export default CampaignForm
+export default ArticleForm
