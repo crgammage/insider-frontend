@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react'
+import React, {useState, Fragment} from 'react'
 import EditArticleForm from './EditArticleForm.js'
 
 const ArticleCard = props => {
@@ -26,17 +26,19 @@ const ArticleCard = props => {
     }
 
     return (
-        <div className="article-card">
-        <div id={id}>
-        <h1 onClick={(e) => handleClick(e)}>Title: {title}</h1>
-        <h5>Author: {author}</h5>
-        <h5>Publication Date: {new Date(publication_date).toDateString()}</h5>
-        <h5>Body: {body}</h5>
-        { showEditForm ? <button className="myButton" onClick={(e) => handleClick(e)}> Close Edit Article</button> : <button className="myButton" onClick={(e) => handleClick(e)}>Edit Article</button>}
-        <button className="myButton" onClick={(e) => deleteArticle(e)}>Delete Article</button>
-        {showEditForm ? <EditArticleForm showEditForm={showEditForm} setShowEditForm={setShowEditForm} handleUpdatedArticle={handleUpdatedArticle}/> : null}
-        </div>
-        </div>
+        <>
+<div id={id} className="card text-white bg-dark mb-3" style={{width: 900, maxWidth: 900, margin: 10}}>
+  <div className="card-header">Publication date: {new Date(publication_date).toDateString()}</div>
+  <div className="card-header">Author: {author}</div>
+  <div className="card-body">
+    <h4 className="card-title" style={{textAlign: 'center'}}>Title: {title}</h4>
+    <p className="card-text">{body}</p>
+  </div>
+  { showEditForm ? <button type="button" className="btn btn-primary" onClick={(e) => handleClick(e)}> Close Edit Article</button> : <button type="button" class="btn btn-primary" onClick={(e) => handleClick(e)}>Edit Article</button>}
+  <button type="button" className="btn btn-info" onClick={(e) => deleteArticle(e)}>Delete Article</button>
+  {showEditForm ? <EditArticleForm showEditForm={showEditForm} setShowEditForm={setShowEditForm} handleUpdatedArticle={handleUpdatedArticle}/> : null}
+</div>
+</>
     )
 }
 
