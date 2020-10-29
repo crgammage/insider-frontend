@@ -35,7 +35,7 @@ const ArticleCard = props => {
     <p className="card-text">{body}</p>
   </div>
   { showEditForm ? <button type="button" className="btn btn-primary" onClick={(e) => handleClick(e)}> Close Edit Article</button> : <button type="button" class="btn btn-primary" onClick={(e) => handleClick(e)}>Edit Article</button>}
-  <button type="button" className="btn btn-info" onClick={(e) => deleteArticle(e)}>Delete Article</button>
+  <button type="button" className="btn btn-info icomoon icon-remove-2" onClick={(e) => deleteArticle(e)}>Delete Article</button>
   {showEditForm ? <EditArticleForm showEditForm={showEditForm} setShowEditForm={setShowEditForm} handleUpdatedArticle={handleUpdatedArticle}/> : null}
 </div>
 </>
