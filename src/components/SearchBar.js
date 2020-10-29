@@ -10,10 +10,10 @@ const SearchBar = props => {
     }
 
     return (
-        <div className="searchbar">
-            <input placeholder="Search..." name="search" type="text" value={search} onChange={(e) => setSearch(e.target.value)}/>
-            <button onClick={() => handleChange()} className="myButton">Search</button>
-        </div>
+        <form className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="text" placeholder="Search..."name="search" value={search} onChange={(e) => setSearch(e.target.value)}/>
+      <button onClick={() => handleChange()} className="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
     )
 }
 
