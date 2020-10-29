@@ -27,7 +27,7 @@ const ArticleContainer = () => {
         if (search !== '') {
             let filteredArticles = articles.filter(article => article.title.toLowerCase().includes(search.toLowerCase()))
             return filteredArticles.map((article) => (
-                <div className="article-container" style={{display: 'flex', flowDirection: 'row-reverse', justifyContent: 'center', flexWrap: 'wrap'}}>
+                <div className="article-container" style={{display: 'flex', justifyContent: 'center'}}>
                     <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle} handleDeletedArticle={handleDeletedArticle}/>
                 </div>
             ))

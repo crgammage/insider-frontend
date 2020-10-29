@@ -27,7 +27,7 @@ const ArticleCard = props => {
 
     return (
         <>
-<div id={id} className="card text-white bg-dark mb-3" style={{maxHeight: 300, maxWidth: 300, margin: 10}}>
+<div id={id} className="card text-white bg-dark mb-3" style={{maxWidth: 300, margin: 10}}>
   <div className="card-header">Publication date: {new Date(publication_date).toDateString()}</div>
   <div className="card-header">Author: {author}</div>
   <div className="card-body">
