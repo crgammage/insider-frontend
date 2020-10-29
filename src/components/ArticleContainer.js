@@ -25,14 +25,16 @@ const ArticleContainer = () => {
 
     const renderArticles = () => {
         if (search !== '') {
-            let filteredArticles = articles.filter(article => article.title.toLowerCase().includes(search.toLowerCase()))
+            let sortedArticles = articles.sort((a,b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+            let filteredArticles = sortedArticles.filter(article => article.title.toLowerCase().includes(search.toLowerCase()))
             return filteredArticles.map((article) => (
                 <div className="article-container" style={{display: 'flex', justifyContent: 'center'}}>
                     <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle} handleDeletedArticle={handleDeletedArticle}/>
                 </div>
             ))
         } else {
-            return articles.map((article) => (
+            let sortedArticles = articles.sort((a,b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime())
+            return sortedArticles.map((article) => (
                 <div className="article-container" style={{display: 'flex', flowDirection: 'row-reverse', justifyContent: 'center', flexWrap: 'wrap'}}>
                 <ArticleCard key={article.id} {...article} handleUpdatedArticle={handleUpdatedArticle} handleDeletedArticle={handleDeletedArticle}/>
                 </div>
@@ -59,8 +61,6 @@ const ArticleContainer = () => {
         setSearch(searchInput)
     }
 
-
-    console.log(search)
     
     return (
     <div>

@@ -60,7 +60,7 @@ const ArticleForm = props => {
       <textarea type="text" name="body" value={formData.body} onChange={(e) => handleChange(e)} className="form-control" id="exampleTextarea" rows="3"></textarea>
     </div>
     </fieldset>
-    <button type="submit" className="btn btn-primary">Submit</button>
+    <button type="submit" className="btn btn-primary" style={{marginBottom: 10}}>Submit</button>
     </form>
     )
 }
